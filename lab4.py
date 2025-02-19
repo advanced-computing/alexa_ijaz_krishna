@@ -41,11 +41,11 @@ def factorial_route():
 def whole_data():
     """Return the whole dataset."""
     df = pd.read_csv('NYPD_Hate_Crimes_20250131.csv')
-    df1 = df.to_csv()
-    return df1
+    df = df.to_csv()
+    return jsonify(df)
 
-@app.route("/filtered_data", methods=["GET"])
-def filtered_data():
+@app.route("/year_data", methods=["GET"])
+def year_data():
     df = pd.read_csv('NYPD_Hate_Crimes_20250131.csv')
     return jsonify(df["Complaint Year Number"].tolist())
 
