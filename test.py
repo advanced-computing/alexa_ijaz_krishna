@@ -21,4 +21,4 @@ def test_3_calc_mean():
     assert calc_mean(df) == "6.0"
 
 #python -m pytest test.py
-#try again 1
+#try again 1 2
