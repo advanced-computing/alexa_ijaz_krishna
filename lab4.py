@@ -53,6 +53,9 @@ def year_data():
 def alexa_mean_function():
     df = pd.read_csv('NYPD_Hate_Crimes_20250131.csv')
     df["Month Number"] = df["Month Number"].astype(float)
+    return calc_mean(df)
+
+def calc_mean(df):
     mean = df["Month Number"].mean()
     return mean.astype(str)
 
