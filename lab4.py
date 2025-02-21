@@ -6,6 +6,7 @@ import csv
 #print(df)
 
 app = Flask(__name__)
+df = pd.read_csv('NYPD_Hate_Crimes_20250131.csv')
 
 @app.route("/")
 def hello_world():
@@ -16,7 +17,6 @@ def hello_world():
 @app.route("/sum", methods=["GET"])
 def sum():
     """Return the sum of two numbers."""
-
     a = request.args.get("a")
     b = request.args.get("b")
 
@@ -48,6 +48,13 @@ def whole_data():
 def year_data():
     df = pd.read_csv('NYPD_Hate_Crimes_20250131.csv')
     return jsonify(df["Complaint Year Number"].tolist())
+
+@app.route("/alexa_mean_function", methods=["GET"])
+def alexa_mean_function():
+    df = pd.read_csv('NYPD_Hate_Crimes_20250131.csv')
+    df["Month Number"] = df["Month Number"].astype(float)
+    mean = df["Month Number"].mean()
+    return mean.astype(str)
 
 if __name__ == "__main__":
     app.run(debug=True)
