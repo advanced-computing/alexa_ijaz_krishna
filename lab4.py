@@ -2,6 +2,8 @@
 from flask import Flask, jsonify, request
 import pandas as pd 
 import csv
+import function_ijaz
+
 
 #print(df)
 
@@ -48,6 +50,8 @@ def whole_data():
 def year_data():
     df = pd.read_csv('NYPD_Hate_Crimes_20250131.csv')
     return jsonify(df["Complaint Year Number"].tolist())
+
+df=function_ijaz(df)
 
 if __name__ == "__main__":
     app.run(debug=True)

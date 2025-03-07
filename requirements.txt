@@ -3,5 +3,4 @@ jupyter==1.*
 plotly
 flask
 requests
-json
-csv
+duckdb
