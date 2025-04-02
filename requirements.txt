@@ -3,4 +3,6 @@ jupyter==1.*
 plotly
 flask
 requests
-duckdb
+json
+csv
+ydata-profiling
